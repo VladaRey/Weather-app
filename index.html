@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/homework.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <section>
+      <header>
+        <form id="search-city">
+          <input
+            type="search"
+            placeholder="Enter a city.."
+            class="button-city"
+            id="city"
+          />
+          <input type="submit" value="Search" class="button-search" id="submit-input"/>
+        </form>
+      </header>
+      <main>
+        <div class="current-weather">
+          <div>
+            <h1>Paris</h1>
+            <p>
+              <span id="current-time">Saturday 15:32</span>, moderate rain <br />
+              Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
+            </p>
+          </div>
+          <div class="temperature">
+            <span class="temperature-icon">☀️</span
+            ><span class="temperature-value" id="temperature-value">14</span
+            ><span class="temperature-unit">°C</span>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>
+          This project was coded by
+          <a href="#" target="_blank">Vladyslava Podzirei</a> and is
+          <a href="#" target="_blank"> on GitHub</a> and
+          <a href="#" target="_blank">hosted on Netlify</a>
+        </p>
+      </footer>
+    </section>
+    <script src="src/js-homework.js"></script>
+  </body>
+</html>
