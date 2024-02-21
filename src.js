@@ -22,7 +22,9 @@ function showTemperature(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   let timeElement = document.querySelector("#current-time");
   let date = new Date(response.data.time * 1000);
-
+  let icon = document.querySelector("#icon");
+  
+  icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="temperature-icon" />`;
   h1.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;

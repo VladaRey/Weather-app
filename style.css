@@ -76,7 +76,7 @@ a {
   margin-top: 14px;
 }
 .temperature-icon {
-  font-size: 40px;
-  margin-top: 20px;
+  width: 90px;
+  height: 90px;
 }
 
