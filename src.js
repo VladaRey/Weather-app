@@ -28,6 +28,7 @@ function showTemperature(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureValue.innerHTML = Math.round(temperatureElement);
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -52,15 +53,22 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
-  
+function getForecast(city) {
+  let apiKey = "9833co795c058e7446f0a2tc1ebbfba5";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHTML = "";
-  
+
   days.forEach(function (day) {
-    forecastHTML = 
-    forecastHTML +
-    `
+    forecastHTML =
+      forecastHTML +
+      `
     <div class="weather-forecast-day">
     <div class="weather-forecast-date">${day}</div>
     <div class="weather-forecast-icon">🌤️</div>
@@ -73,7 +81,7 @@ function displayForecast() {
     </div>
     `;
   });
-  
+
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHTML;
 }
@@ -82,4 +90,5 @@ let form = document.querySelector("#search-city");
 form.addEventListener("submit", searchSubmit);
 
 searchCity("Norway");
-displayForecast();
+
+
